@@ -53,7 +53,6 @@ object Libraries {
         const val DYNAMIC_LINKS = "com.google.firebase:firebase-dynamic-links-ktx"
     }
 
-
     object JetPack {
         // Lifecycle library dependencies
         const val VIEW_MODEL = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0"
@@ -106,7 +105,6 @@ object Libraries {
         private const val RETROFIT_VERSION = "2.9.0"
         private const val OK_HTTP_VERSION = "4.10.0"
 
-
         // Retrofit library dependencies
         const val CORE = "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
         const val JSON_CONVERTER = "com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION"
@@ -115,7 +113,6 @@ object Libraries {
         const val MOCK_SERVER = "com.squareup.okhttp3:mockwebserver:$OK_HTTP_VERSION"
         const val SCALARS = "com.squareup.retrofit2:converter-scalars:$RETROFIT_VERSION"
         const val RX_JAVA = "com.squareup.retrofit2:adapter-rxjava2:$RETROFIT_VERSION"
-
     }
 
     object LeakCanary {

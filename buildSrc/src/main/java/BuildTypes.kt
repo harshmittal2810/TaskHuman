@@ -9,5 +9,4 @@ object BuildTypes {
     const val STAGING  = "staging"
     const val QA  = "qa"
     const val LOCALHOST  = "localHost"
-    const val OTHER_SERVER  = "otherServer"
 }

@@ -15,7 +15,6 @@ internal class DefaultBuildConfigFieldFactory : BuildConfigFieldFactory {
             BuildTypes.QA -> TestingBuildConfigFields()
             BuildTypes.STAGING -> StagingBuildConfigFields()
             BuildTypes.LOCALHOST -> LocalHostBuildConfigFields()
-            BuildTypes.OTHER_SERVER -> OtherServerBuildConfigFields()
             BuildTypes.PROD -> ProdBuildConfigFields()
             BuildTypes.RELEASE -> ProdBuildConfigFields()
             else -> throw IllegalArgumentException("Unknown build type '$buildType' found!")

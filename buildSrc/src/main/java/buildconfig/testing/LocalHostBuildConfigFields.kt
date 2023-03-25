@@ -7,7 +7,7 @@ import buildconfig.BuildConfigFields
  **/
 internal class LocalHostBuildConfigFields : BuildConfigFields {
 
-    override fun domain(): String = "192.168.1.109:6713"
+    override fun domain(): String = "192.168.1.1"
 
     override fun certificateFingerPrints(): List<String> {
         return listOf(
@@ -15,5 +15,5 @@ internal class LocalHostBuildConfigFields : BuildConfigFields {
         )
     }
 
-    override fun appNameToShowInAnalyticsDashboard(): String = "Emplus(Testing)"
+    override fun appNameToShowInAnalyticsDashboard(): String = "TaskHuman(Testing)"
 }

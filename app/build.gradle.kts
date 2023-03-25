@@ -135,11 +135,6 @@ android {
             setMatchingFallbacks("debug", "release")
         }
 
-        create(BuildTypes.OTHER_SERVER) {
-            initWith(getByName(BuildTypes.DEBUG))
-            setMatchingFallbacks("debug", "release")
-        }
-
         create(BuildTypes.PROD) {
             initWith(getByName(BuildTypes.RELEASE))
             setMatchingFallbacks("release")

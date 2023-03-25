@@ -8,7 +8,6 @@ import buildconfig.testing.TestingBuildConfigFieldFactory
  * Created by Harsh Mittal on 01/07/22.
  **/
 internal object BuildConfigFieldFactoryCreator {
-
     fun createBuildConfigFieldFactory(flavor: String): BuildConfigFieldFactory {
         return when (flavor) {
             ProductFlavors.DEFAULT -> {

@@ -7,13 +7,13 @@ import buildconfig.BuildConfigFields
  **/
 internal class StagingBuildConfigFields : BuildConfigFields {
 
-    override fun domain(): String = "empuls.xoxostaging.com/chef"
+    override fun domain(): String = "api-devenv.taskhuman.com/v0.8"
 
     override fun certificateFingerPrints(): List<String> {
         return listOf(
-            "kegOkDaKNRaTsz1n5s/tuH9hJmOQeomFUcOnAu2uSb4="
+            ""
         )
     }
 
-    override fun appNameToShowInAnalyticsDashboard(): String = "Emplus(Testing)"
+    override fun appNameToShowInAnalyticsDashboard(): String = "TaskHuman(Staging)"
 }
