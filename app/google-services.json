@@ -1,0 +1,163 @@
+{
+  "project_info": {
+    "project_number": "188013797697",
+    "firebase_url": "https://androidprojects-f75f0.firebaseio.com",
+    "project_id": "androidprojects-f75f0",
+    "storage_bucket": "androidprojects-f75f0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:188013797697:android:a35b1bad3dfbcfed5281c0",
+        "android_client_info": {
+          "package_name": "com.harsh.informed.newsinformed"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "188013797697-gc4af7rh2ukgs2mng3bor69eont582bo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwv4NFQwkCN8XzxOKK6bXRNfKI8yRTGp0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "188013797697-gc4af7rh2ukgs2mng3bor69eont582bo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "188013797697-0ldmokdtu5q2rimrb06do4a17j04lfea.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "co.appbrewery.flashChat"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:188013797697:android:42f747245aad3ff85281c0",
+        "android_client_info": {
+          "package_name": "com.harsh.jordanapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "188013797697-e5tki4arr4tosvghhpg699v5ahpn1lfl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.harsh.jordanapp",
+            "certificate_hash": "de967976cc6b816f893b9881ba42674fb8203f93"
+          }
+        },
+        {
+          "client_id": "188013797697-gc4af7rh2ukgs2mng3bor69eont582bo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwv4NFQwkCN8XzxOKK6bXRNfKI8yRTGp0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "188013797697-gc4af7rh2ukgs2mng3bor69eont582bo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "188013797697-0ldmokdtu5q2rimrb06do4a17j04lfea.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "co.appbrewery.flashChat"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:188013797697:android:ab9a9fe35473b8175281c0",
+        "android_client_info": {
+          "package_name": "com.harsh.taskhuman"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "188013797697-gc4af7rh2ukgs2mng3bor69eont582bo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwv4NFQwkCN8XzxOKK6bXRNfKI8yRTGp0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "188013797697-gc4af7rh2ukgs2mng3bor69eont582bo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "188013797697-0ldmokdtu5q2rimrb06do4a17j04lfea.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "co.appbrewery.flashChat"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:188013797697:android:9702643e28d615065281c0",
+        "android_client_info": {
+          "package_name": "com.news.wrteam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "188013797697-gc4af7rh2ukgs2mng3bor69eont582bo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwv4NFQwkCN8XzxOKK6bXRNfKI8yRTGp0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "188013797697-gc4af7rh2ukgs2mng3bor69eont582bo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "188013797697-0ldmokdtu5q2rimrb06do4a17j04lfea.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "co.appbrewery.flashChat"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

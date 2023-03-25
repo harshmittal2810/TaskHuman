@@ -1,0 +1,4 @@
+include(":app")
+include(":libraries:logger")
+include(":libraries:preferences")
+include(":libraries:securedpreferencestore")
