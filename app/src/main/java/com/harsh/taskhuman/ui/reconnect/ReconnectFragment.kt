@@ -6,16 +6,16 @@ import android.view.View
 import android.widget.TextView
 import androidx.fragment.app.viewModels
 import com.harsh.taskhuman.common.ViewBindingFragment
-import com.harsh.taskhuman.databinding.FragmentDiscoverBinding
+import com.harsh.taskhuman.databinding.FragmentReconnectBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ReconnectFragment : ViewBindingFragment<FragmentDiscoverBinding>() {
+class ReconnectFragment : ViewBindingFragment<FragmentReconnectBinding>() {
 
     private val reconnectViewModel: ReconnectViewModel by viewModels()
 
-    override fun provideBinding(inflater: LayoutInflater): FragmentDiscoverBinding {
-        return FragmentDiscoverBinding.inflate(inflater)
+    override fun provideBinding(inflater: LayoutInflater): FragmentReconnectBinding {
+        return FragmentReconnectBinding.inflate(inflater)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

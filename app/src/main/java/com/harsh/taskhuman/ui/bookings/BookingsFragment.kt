@@ -6,16 +6,16 @@ import android.view.View
 import android.widget.TextView
 import androidx.fragment.app.viewModels
 import com.harsh.taskhuman.common.ViewBindingFragment
-import com.harsh.taskhuman.databinding.FragmentDiscoverBinding
+import com.harsh.taskhuman.databinding.FragmentBookingsBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class BookingsFragment : ViewBindingFragment<FragmentDiscoverBinding>() {
+class BookingsFragment : ViewBindingFragment<FragmentBookingsBinding>() {
 
     private val bookingsViewModel: BookingsViewModel by viewModels()
 
-    override fun provideBinding(inflater: LayoutInflater): FragmentDiscoverBinding {
-        return FragmentDiscoverBinding.inflate(inflater)
+    override fun provideBinding(inflater: LayoutInflater): FragmentBookingsBinding {
+        return FragmentBookingsBinding.inflate(inflater)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

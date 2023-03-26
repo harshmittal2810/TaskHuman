@@ -1,18 +1,30 @@
 package com.harsh.taskhuman.ui.discover
 
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
+import android.text.style.UnderlineSpan
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.harsh.taskhuman.R
 import com.harsh.taskhuman.common.ViewBindingFragment
 import com.harsh.taskhuman.databinding.FragmentDiscoverBinding
+import com.harsh.taskhuman.ui.discover.adapter.DiscoverAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class DiscoverFragment : ViewBindingFragment<FragmentDiscoverBinding>() {
 
     private val discoverViewModel: DiscoverViewModel by viewModels()
+
+    @Inject
+    lateinit var discoverAdapter: DiscoverAdapter
 
     override fun provideBinding(inflater: LayoutInflater): FragmentDiscoverBinding {
         return FragmentDiscoverBinding.inflate(inflater)
@@ -20,9 +32,42 @@ class DiscoverFragment : ViewBindingFragment<FragmentDiscoverBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val textView: TextView = binding.textHome
         discoverViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+
         }
+
+        with(binding) {
+            guidanceText()
+            binding.recyclerView.apply {
+                layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
+                adapter = discoverAdapter
+            }
+
+
+            discoverAdapter.updateDiscoverList(listOf("Harsh", "Mittal"))
+        }
+    }
+
+    private fun guidanceText() {
+        val spannable = SpannableString(getString(R.string.guidance_title))
+        spannable.setSpan(
+            ForegroundColorSpan(
+                ContextCompat.getColor(
+                    requireContext(), R.color.green
+                )
+            ),
+            18,
+            22,
+            Spannable.SPAN_EXCLUSIVE_INCLUSIVE,
+        )
+
+        spannable.setSpan(
+            UnderlineSpan(),
+            18,
+            22,
+            Spannable.SPAN_EXCLUSIVE_INCLUSIVE,
+        )
+
+        binding.tvGuidance.text = spannable
     }
 }

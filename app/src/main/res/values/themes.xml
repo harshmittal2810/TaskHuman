@@ -1,6 +1,6 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="Theme.TaskHuman" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <style name="Theme.TaskHuman" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/colorOnPrimary</item>
         <item name="colorPrimaryVariant">@color/red</item>
@@ -11,6 +11,7 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowBackground">@color/windowBackground</item>
         <!-- Customize your theme here. -->
     </style>
 </resources>

@@ -6,16 +6,16 @@ import android.view.View
 import android.widget.TextView
 import androidx.fragment.app.viewModels
 import com.harsh.taskhuman.common.ViewBindingFragment
-import com.harsh.taskhuman.databinding.FragmentDiscoverBinding
+import com.harsh.taskhuman.databinding.FragmentMessagesBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MessagesFragment : ViewBindingFragment<FragmentDiscoverBinding>() {
+class MessagesFragment : ViewBindingFragment<FragmentMessagesBinding>() {
 
     private val messageViewModel: MessagesViewModel by viewModels()
 
-    override fun provideBinding(inflater: LayoutInflater): FragmentDiscoverBinding {
-        return FragmentDiscoverBinding.inflate(inflater)
+    override fun provideBinding(inflater: LayoutInflater): FragmentMessagesBinding {
+        return FragmentMessagesBinding.inflate(inflater)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

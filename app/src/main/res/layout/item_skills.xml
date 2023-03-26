@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipToPadding="false"
+    android:paddingVertical="@dimen/dimen_8dp">
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_120dp"
+        android:layout_marginHorizontal="@dimen/dimen_12dp"
+        app:cardCornerRadius="@dimen/dimen_10dp"
+        app:cardElevation="@dimen/dimen_4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.harsh.taskhuman.common.view.SwipeLayout
+                android:id="@+id/swipeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:autoClose="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:preview="none">
+
+                <LinearLayout
+                    android:layout_width="@dimen/dimen_100dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end"
+                    android:background="#CF2512"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivFav"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        app:srcCompat="@drawable/ic_fav" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvFav"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/dimen_10dp"
+                        android:gravity="center"
+                        android:text="@string/add_favorite"
+                        android:textColor="@color/white" />
+
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/dimen_12dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/itemTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginBottom="@dimen/dimen_16dp"
+                        android:text="Coaching For Performance"
+                        android:textColor="@color/primaryTextColor"
+                        android:textSize="@dimen/font_18sp"
+                        app:layout_constraintBottom_toTopOf="@+id/imageBottomLayout"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/imageBottomLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent">
+
+                        <RelativeLayout
+                            android:id="@+id/imageLayout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clipChildren="false"
+                            android:clipToPadding="false"
+                            android:gravity="start|center"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/timeLayout"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/image1"
+                                android:layout_width="@dimen/dimen_32dp"
+                                android:layout_height="@dimen/dimen_32dp"
+                                android:src="@drawable/ic_discover"
+                                android:visibility="gone"
+                                app:civ_border_color="@color/white"
+                                app:civ_border_width="@dimen/dimen_1dp"
+                                app:civ_circle_background_color="@color/white"
+                                tools:visibility="visible" />
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/image2"
+                                android:layout_width="@dimen/dimen_32dp"
+                                android:layout_height="@dimen/dimen_32dp"
+                                android:layout_marginStart="@dimen/dimen_25dp"
+                                android:src="@drawable/ic_discover"
+                                android:visibility="gone"
+                                app:civ_border_color="@color/white"
+                                app:civ_border_width="2dp"
+                                app:civ_circle_background_color="@color/white"
+                                tools:visibility="visible" />
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/image3"
+                                android:layout_width="@dimen/dimen_32dp"
+                                android:layout_height="@dimen/dimen_32dp"
+                                android:layout_marginStart="@dimen/dimen_45dp"
+                                android:src="@drawable/ic_discover"
+                                android:visibility="gone"
+                                app:civ_border_color="@color/white"
+                                app:civ_border_width="2dp"
+                                app:civ_circle_background_color="@color/white"
+                                tools:visibility="visible" />
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/image4"
+                                android:layout_width="@dimen/dimen_32dp"
+                                android:layout_height="@dimen/dimen_32dp"
+                                android:layout_marginStart="@dimen/dimen_65dp"
+                                android:src="@drawable/ic_discover"
+                                android:visibility="gone"
+                                app:civ_border_color="@color/white"
+                                app:civ_border_width="2dp"
+                                app:civ_circle_background_color="@color/white"
+                                tools:visibility="visible" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/timeLayout"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/imageLayout"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tvTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toStartOf="@+id/timeImage"
+                                android:text="Now -  11:00am"
+                                android:textColor="@color/primarySecondaryColor"
+                                android:textSize="@dimen/font_12sp" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/timeImage"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginStart="@dimen/dimen_12dp"
+                                app:srcCompat="@drawable/ic_alarm" />
+
+                        </RelativeLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.harsh.taskhuman.common.view.SwipeLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="@dimen/dimen_14dp"
+        android:layout_height="@dimen/dimen_14dp"
+        android:layout_marginStart="-5dp"
+        android:layout_marginTop="-5dp"
+        android:translationZ="@dimen/dimen_10dp"
+        app:layout_constraintStart_toStartOf="@+id/cardView"
+        app:layout_constraintTop_toTopOf="@+id/cardView"
+        app:srcCompat="@drawable/circle_live" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
