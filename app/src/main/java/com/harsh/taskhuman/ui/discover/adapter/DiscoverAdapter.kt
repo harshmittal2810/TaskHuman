@@ -1,11 +1,16 @@
 package com.harsh.taskhuman.ui.discover.adapter
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.harsh.taskhuman.R
+import com.harsh.taskhuman.common.util.gone
+import com.harsh.taskhuman.common.util.loadUserProfile
+import com.harsh.taskhuman.common.util.visible
 import com.harsh.taskhuman.databinding.ItemHeaderBinding
 import com.harsh.taskhuman.databinding.ItemSkillsBinding
+import com.harsh.taskhuman.ui.discover.model.Skill
 import javax.inject.Inject
 
 class DiscoverAdapter @Inject constructor() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -15,9 +20,9 @@ class DiscoverAdapter @Inject constructor() : RecyclerView.Adapter<RecyclerView.
         private const val NORMAL_VIEW = 1
     }
 
-    var discoverList = mutableListOf<String>()
+    var discoverList = mutableListOf<Skill>()
 
-    fun updateDiscoverList(discoverList: List<String>) {
+    fun updateDiscoverList(discoverList: List<Skill>) {
         val oldListLength = this.discoverList.size
         this.discoverList.addAll(discoverList)
         notifyItemRangeInserted(oldListLength, discoverList.size)
@@ -28,7 +33,7 @@ class DiscoverAdapter @Inject constructor() : RecyclerView.Adapter<RecyclerView.
         notifyDataSetChanged()
     }
 
-    var onItemClicked: (String) -> Unit = {}
+    var onItemClicked: (Skill) -> Unit = {}
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
@@ -62,11 +67,48 @@ class DiscoverAdapter @Inject constructor() : RecyclerView.Adapter<RecyclerView.
         RecyclerView.ViewHolder(binding.root) {
 
         fun onBind(
-            model: String,
-            onItemClicked: (String) -> Unit,
+            skill: Skill,
+            onItemClicked: (Skill) -> Unit,
         ) {
             with(binding) {
-                binding.itemTitle.text = binding.root.context.getString(R.string.app_name)
+                binding.itemTitle.text = skill.displayTileName
+
+                binding.ivAvailability.setBackgroundColor(
+                    Color.parseColor(
+                        skill.availability?.color ?: "#B5B5B5"
+                    )
+                )
+
+                val userDetailsList = skill.providerInfo ?: mutableListOf()
+
+                if (userDetailsList.isNotEmpty()) {
+                    image1.loadUserProfile(userDetailsList[0].profileImage)
+                    image1.visible()
+                } else {
+                    image1.gone()
+                }
+
+                if (userDetailsList.size > 1) {
+                    image2.loadUserProfile(userDetailsList[1].profileImage)
+                    image2.visible()
+                } else {
+                    image2.gone()
+                }
+
+                if (userDetailsList.size > 2) {
+                    image3.loadUserProfile(userDetailsList[2].profileImage)
+                    image3.visible()
+                } else {
+                    image3.gone()
+                }
+
+                if (userDetailsList.size > 3) {
+                    image4.loadUserProfile(userDetailsList[3].profileImage)
+                    image4.visible()
+                } else {
+                    image4.gone()
+                }
+
             }
         }
     }

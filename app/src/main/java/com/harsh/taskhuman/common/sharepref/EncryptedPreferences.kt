@@ -17,7 +17,7 @@ class EncryptedPreferences(
 ) : Preferences {
 
     private companion object {
-        private const val PREFERENCES_NAME = "xoxoday_preferences"
+        private const val PREFERENCES_NAME = "app_preferences"
     }
 
     private val preferences: SharedPreferences by lazy {

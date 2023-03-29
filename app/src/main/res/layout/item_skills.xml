@@ -186,14 +186,18 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivAvailability"
         android:layout_width="@dimen/dimen_14dp"
         android:layout_height="@dimen/dimen_14dp"
         android:layout_marginStart="-5dp"
         android:layout_marginTop="-5dp"
+        android:background="#2C8F77"
         android:translationZ="@dimen/dimen_10dp"
         app:layout_constraintStart_toStartOf="@+id/cardView"
         app:layout_constraintTop_toTopOf="@+id/cardView"
-        app:srcCompat="@drawable/circle_live" />
+        app:shapeAppearanceOverlay="@style/circleImageView"
+        app:strokeColor="@color/white"
+        app:strokeWidth="@dimen/dimen_1dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

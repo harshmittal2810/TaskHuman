@@ -38,10 +38,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimen_20dp"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/itemExplore" />
+            app:layout_constraintTop_toBottomOf="@+id/itemExplore"
+            app:shimmer_recycler_base_color="@color/red"
+            app:shimmer_recycler_colored="true"
+            app:shimmer_recycler_highlight_color="@color/colorShimmerHighlight"
+            app:shimmer_recycler_layout="@layout/list_item_shimmer"
+            tools:itemCount="10"
+            tools:listitem="@layout/item_skills" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
