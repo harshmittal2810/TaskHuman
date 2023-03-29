@@ -1,11 +1,10 @@
 package com.harsh.taskhuman.ui.discover
 
 import android.content.Context
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.harsh.taskhuman.data.Result
+import com.harsh.taskhuman.ui.discover.model.AddFavoriteResponse
+import com.harsh.taskhuman.ui.discover.model.RemoveFavoriteResponse
 import com.harsh.taskhuman.ui.discover.model.Skill
 import com.harsh.taskhuman.ui.discover.repository.DiscoverRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -54,4 +53,16 @@ class DiscoverViewModel @Inject constructor(
             }
         }
     }
+
+    fun addFav(skillName: String, dictionaryName: String): LiveData<Result<AddFavoriteResponse>> =
+        liveData {
+            emit(Result.Loading)
+            emit(repository.addFavorites(skillName, dictionaryName))
+        }
+
+    fun removeFav(skillName: String): LiveData<Result<RemoveFavoriteResponse>> =
+        liveData {
+            emit(Result.Loading)
+            emit(repository.removeFavorites(skillName))
+        }
 }

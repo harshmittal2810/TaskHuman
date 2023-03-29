@@ -9,6 +9,32 @@ class DefaultPrefHelper private constructor(
     private val preferences: Preferences
 ) : PrefHelper {
 
+    override var isForegroundApp: Boolean
+        get() = preferences.getBoolean(PrefNames.APP_FOREGROUND, false)
+        set(value) {
+            preferences.saveBoolean(PrefNames.APP_FOREGROUND, value)
+        }
+
+    override var featureConfigStateRepo: Boolean
+        get() = preferences.getBoolean(PrefNames.FEATURE_CONFIG_STATE_REPO, false)
+        set(value) {
+            preferences.saveBoolean(PrefNames.FEATURE_CONFIG_STATE_REPO, value)
+        }
+
+    override var cookies: HashSet<String>
+        get() = preferences.getStringSet(PrefNames.APP_COOKIE, hashSetOf())?.toHashSet()
+            ?: hashSetOf()
+        set(cookies) {
+            preferences.saveStringSet(PrefNames.APP_COOKIE, cookies)
+        }
+
+    override var safetyNetToken: String
+        get() = preferences.getString(PrefNames.APP_SAFETY_NET_TOKEN, "") ?: ""
+        set(safetyToken) {
+            preferences.saveString(PrefNames.APP_SAFETY_NET_TOKEN, safetyToken)
+        }
+
+
     override var envBaseUrl: String
         get() = preferences.getString(PrefNames.API_BASE_URL, "") ?: ""
         set(value) {

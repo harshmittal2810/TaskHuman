@@ -5,6 +5,7 @@ import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
 import android.text.style.UnderlineSpan
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import androidx.core.content.ContextCompat
@@ -13,6 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.harsh.taskhuman.R
 import com.harsh.taskhuman.common.ViewBindingFragment
+import com.harsh.taskhuman.common.customview.ProgressAnimDialog
+import com.harsh.taskhuman.common.util.AppExceptionHandler
 import com.harsh.taskhuman.data.Result
 import com.harsh.taskhuman.databinding.FragmentDiscoverBinding
 import com.harsh.taskhuman.ui.discover.adapter.DiscoverAdapter
@@ -23,6 +26,7 @@ import javax.inject.Inject
 class DiscoverFragment : ViewBindingFragment<FragmentDiscoverBinding>() {
 
     private val discoverViewModel: DiscoverViewModel by viewModels()
+    private var mProgressDialog: ProgressAnimDialog? = null
 
     @Inject
     lateinit var discoverAdapter: DiscoverAdapter
@@ -68,6 +72,40 @@ class DiscoverFragment : ViewBindingFragment<FragmentDiscoverBinding>() {
                 }
             }
         }
+
+        discoverAdapter.onAddRemoveClicked = { position, model, isFav ->
+            Log.d("DiscoverFragment", "Pos: $position, Model: $model, isFav: $isFav")
+
+            if (isFav) {
+                discoverViewModel.addFav(model.displayTileName ?: "", model.dictionaryName ?: "")
+                    .observe(viewLifecycleOwner) {
+                        when (it) {
+                            Result.Empty -> hideLoader()
+                            is Result.Failure -> hideLoader()
+                            Result.Loading -> showLoader()
+                            is Result.Success -> {
+                                hideLoader()
+                                model.isFavorite = isFav
+                                discoverAdapter.itemUpdated(position, model)
+                            }
+                        }
+                    }
+            } else {
+                discoverViewModel.removeFav(model.displayTileName ?: "")
+                    .observe(viewLifecycleOwner) {
+                        when (it) {
+                            Result.Empty -> hideLoader()
+                            is Result.Failure -> hideLoader()
+                            Result.Loading -> showLoader()
+                            is Result.Success -> {
+                                hideLoader()
+                                model.isFavorite = isFav
+                                discoverAdapter.itemUpdated(position, model)
+                            }
+                        }
+                    }
+            }
+        }
     }
 
     private fun guidanceText() {
@@ -91,5 +129,24 @@ class DiscoverFragment : ViewBindingFragment<FragmentDiscoverBinding>() {
         )
 
         binding.tvGuidance.text = spannable
+    }
+
+    fun showLoader() {
+        try {
+            mProgressDialog =
+                ProgressAnimDialog.show(requireContext(), getString(R.string.loading), true, null)
+        } catch (e: Exception) {
+            AppExceptionHandler.handle(e)
+        }
+    }
+
+    fun hideLoader() {
+        try {
+            if (mProgressDialog != null && mProgressDialog!!.isShowing) {
+                mProgressDialog!!.dismiss()
+            }
+        } catch (e: Exception) {
+            AppExceptionHandler.handle(e)
+        }
     }
 }

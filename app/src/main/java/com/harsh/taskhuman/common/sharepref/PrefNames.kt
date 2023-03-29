@@ -10,5 +10,8 @@ object PrefNames {
     const val API_BASE_URL = "api_base_url"
     const val GCM_TOKEN_ID = "tokenid"
     const val LOGIN = "isLogin"
+    const val APP_COOKIE = "APP_COOKIE"
+    const val APP_SAFETY_NET_TOKEN = "SAFETY_NET_TOKEN"
+    const val FEATURE_CONFIG_STATE_REPO = "FEATURE_CONFIG_STATE_REPO"
 
 }

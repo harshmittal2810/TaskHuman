@@ -6,12 +6,13 @@ data class Skill(
     val columns: Int? = -1,
     val dictionaryName: String? = "",
     val displayTileName: String? = "",
-    val isFavorite: Boolean? = false,
+    var isFavorite: Boolean? = false,
     val moreProvidersAvailable: Boolean? = false,
     val providerInfo: List<ProviderInfoX>? = mutableListOf(),
     val skillIcon: String? = "",
     val tileBackground: String? = "",
     val tileColor: String? = "",
     val tileName: String? = "",
-    val type: String? = ""
+    val type: String? = "",
+    var showSidePanel: Boolean = false,
 )

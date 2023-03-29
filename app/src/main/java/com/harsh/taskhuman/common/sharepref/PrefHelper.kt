@@ -11,6 +11,11 @@ interface PrefHelper {
     var envBaseUrl: String
     var isLogin: Boolean
     var gcmToken: String
+    var isForegroundApp: Boolean
+
+    var featureConfigStateRepo: Boolean
+    var cookies: HashSet<String>
+    var safetyNetToken: String
 
     fun clearSharedPref()
 

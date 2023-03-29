@@ -7,7 +7,6 @@ import android.util.Log;
 
 import com.harsh.taskhuman.MainApplication;
 import com.harsh.taskhuman.R;
-import com.harsh.taskhuman.common.sharepref.PrefHelper;
 
 import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
@@ -58,11 +57,6 @@ public class Utils {
         return millis;
 
     }
-
-    public static String getFormattedString(String str) {
-        return String.format(str, PrefHelper.Companion.getInstance(MainApplication.instance()).getPointsName());
-    }
-
 
     public static long getMillisInBetweenCurrentDate(String inputFormatDate, String inputFormat) {
         long millis = 0;

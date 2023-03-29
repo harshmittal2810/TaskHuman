@@ -1,11 +1,14 @@
 package com.harsh.taskhuman.ui.discover.adapter
 
 import android.graphics.Color
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.harsh.taskhuman.R
 import com.harsh.taskhuman.common.util.gone
+import com.harsh.taskhuman.common.util.isValidAndNotEmpty
 import com.harsh.taskhuman.common.util.loadUserProfile
 import com.harsh.taskhuman.common.util.visible
 import com.harsh.taskhuman.databinding.ItemHeaderBinding
@@ -20,27 +23,29 @@ class DiscoverAdapter @Inject constructor() : RecyclerView.Adapter<RecyclerView.
         private const val NORMAL_VIEW = 1
     }
 
-    var discoverList = mutableListOf<Skill>()
+    var skillsList = mutableListOf<Skill>()
 
-    fun updateDiscoverList(discoverList: List<Skill>) {
-        val oldListLength = this.discoverList.size
-        this.discoverList.addAll(discoverList)
-        notifyItemRangeInserted(oldListLength, discoverList.size)
+    fun updateDiscoverList(list: List<Skill>) {
+        val oldListLength = skillsList.size
+        skillsList.addAll(list)
+        notifyItemRangeInserted(oldListLength, list.size)
     }
 
     fun clearAll() {
-        this.discoverList.clear()
+        skillsList.clear()
         notifyDataSetChanged()
     }
 
-    var onItemClicked: (Skill) -> Unit = {}
+    var onAddRemoveClicked: (position: Int, model: Skill, isFav: Boolean) -> Unit = { _, _, _ -> }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
             is ItemViewHolder -> {
-                if (discoverList.isNotEmpty()) {
+                if (skillsList.isNotEmpty()) {
                     holder.onBind(
-                        discoverList[position - 1], onItemClicked
+                        position - 1,
+                        skillsList[position - 1],
+                        onAddRemoveClicked,
                     )
                 }
             }
@@ -52,7 +57,7 @@ class DiscoverAdapter @Inject constructor() : RecyclerView.Adapter<RecyclerView.
     }
 
     override fun getItemCount(): Int {
-        return discoverList.size + 1
+        return skillsList.size + 1
     }
 
     override fun getItemViewType(position: Int): Int {
@@ -67,11 +72,16 @@ class DiscoverAdapter @Inject constructor() : RecyclerView.Adapter<RecyclerView.
         RecyclerView.ViewHolder(binding.root) {
 
         fun onBind(
+            position: Int,
             skill: Skill,
-            onItemClicked: (Skill) -> Unit,
+            onAddRemoveClicked: (position: Int, model: Skill, isFav: Boolean) -> Unit,
         ) {
             with(binding) {
-                binding.itemTitle.text = skill.displayTileName
+                binding.itemTitle.text = if (skill.displayTileName.isValidAndNotEmpty()) {
+                    skill.displayTileName
+                } else {
+                    skill.tileName
+                }
 
                 binding.ivAvailability.setBackgroundColor(
                     Color.parseColor(
@@ -109,6 +119,35 @@ class DiscoverAdapter @Inject constructor() : RecyclerView.Adapter<RecyclerView.
                     image4.gone()
                 }
 
+                if (skill.isFavorite == true) {
+                    ivFav.setImageResource(R.drawable.ic_fav_remove)
+                    tvFav.text = root.context.getString(R.string.remove_favorite)
+                } else {
+                    ivFav.setImageResource(R.drawable.ic_fav)
+                    tvFav.text = root.context.getString(R.string.add_favorite)
+                }
+
+                if (skill.showSidePanel) {
+                    swipeLayout.openEndMenu(true)
+                    if (skill.isFavorite == true) {
+                        tvFav.text = root.context.getString(R.string.added)
+                    } else {
+                        tvFav.text = root.context.getString(R.string.removed)
+                    }
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        swipeLayout.closeEndMenu(true)
+                        if (skill.isFavorite == true) {
+                            tvFav.text = root.context.getString(R.string.remove_favorite)
+                        } else {
+                            tvFav.text = root.context.getString(R.string.add_favorite)
+                        }
+                    }, 3 * 1000)
+                }
+
+                endMenu.setOnClickListener {
+                    onAddRemoveClicked(position, skill, !(skill.isFavorite ?: false))
+                }
+
             }
         }
     }
@@ -132,6 +171,14 @@ class DiscoverAdapter @Inject constructor() : RecyclerView.Adapter<RecyclerView.
                 )
             }
         }
+    }
+
+    fun itemUpdated(position: Int, model: Skill) {
+        skillsList.forEachIndexed { index, skill ->
+            skill.showSidePanel = position == index
+        }
+//        notifyItemChanged(position + 1)
+        notifyDataSetChanged()
     }
 
     class ItemHeaderViewHolder(private val itemHeaderBinding: ItemHeaderBinding) :

@@ -1,7 +1,9 @@
 package com.harsh.taskhuman.ui.discover.repository
 
 import com.harsh.taskhuman.data.Result
+import com.harsh.taskhuman.ui.discover.model.AddFavoriteResponse
 import com.harsh.taskhuman.ui.discover.model.DiscoverResponse
+import com.harsh.taskhuman.ui.discover.model.RemoveFavoriteResponse
 import com.harsh.taskhuman.ui.discover.source.DiscoverDataSource
 
 /**
@@ -16,11 +18,14 @@ class DefaultDiscoverRepository constructor(
         return remote.getExploreTaskHuman()
     }
 
-    override suspend fun addFavorites(): Result<String> {
-        return remote.addFavorites()
+    override suspend fun addFavorites(
+        skillName: String,
+        dictionaryName: String
+    ): Result<AddFavoriteResponse> {
+        return remote.addFavorites(skillName, dictionaryName)
     }
 
-    override suspend fun removeFavorites(): Result<String> {
-        return remote.removeFavorites()
+    override suspend fun removeFavorites(skillName: String): Result<RemoveFavoriteResponse> {
+        return remote.removeFavorites(skillName)
     }
 }

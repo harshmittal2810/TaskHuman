@@ -19,5 +19,8 @@
     <color name="colorShimmerHighlight">#E6F5F4</color>
     <color name="shimmerColor">#C2C2C2</color>
     <color name="background_grey">#CDCDCD</color>
+    <color name="button_inactive_color">#DCDCDC</color>
+    <color name="transparent">#00000000</color>
+    <color name="whiteboard_host_bg">#7CEDAE</color>
 
 </resources>

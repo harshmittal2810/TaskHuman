@@ -28,7 +28,6 @@
                 android:id="@+id/swipeLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:autoClose="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -38,6 +37,7 @@
                     android:layout_width="@dimen/dimen_100dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="end"
+                    android:id="@+id/endMenu"
                     android:background="#CF2512"
                     android:gravity="center"
                     android:orientation="vertical">
